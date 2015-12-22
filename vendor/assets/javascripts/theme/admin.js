@@ -44,7 +44,7 @@
       });
     }
     if ($('#dashboard-page').length > 0) {
-      $.notify("Welcome back John", 'info', {
+      $.notify("Welcome back Jack", 'info', {
         autoHide: true,
         autoHideDelay: 5000,
         arrowShow: false
@@ -215,9 +215,9 @@
         jsonDateFormat: 'human'
       });
     }
-    if ($('a[data-toggle="tab"][href="#statistics"]').length > 0) {
+    if ($('a[data-toggle="tab"][href="#skills"]').length > 0) {
       stats_shown = false;
-      $('a[data-toggle="tab"][href="#statistics"]').on('shown.bs.tab', function(e) {
+      $('a[data-toggle="tab"][href="#skills"]').on('shown.bs.tab', function(e) {
         var deviceChart, facebook, google, sourceChart, twitter, visitorsChart;
         if (!stats_shown) {
           stats_shown = true;

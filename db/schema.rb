@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213212503) do
+ActiveRecord::Schema.define(version: 20151221002730) do
 
   create_table "endorsements", force: :cascade do |t|
     t.integer  "skill_id",           limit: 4
@@ -39,11 +39,30 @@ ActiveRecord::Schema.define(version: 20151213212503) do
     t.datetime "updated_at"
   end
 
+  create_table "gig_skills", force: :cascade do |t|
+    t.integer  "skill_id",           limit: 4
+    t.integer  "work_experience_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.integer  "gig_skills_id",  limit: 4
-    t.integer  "user_skills_id", limit: 4
-    t.text     "description",    limit: 65535
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.integer  "skill_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_work_experiences", force: :cascade do |t|
+    t.string   "user_id",            limit: 255
+    t.string   "work_experience_id", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,17 +80,18 @@ ActiveRecord::Schema.define(version: 20151213212503) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "work_experiences", force: :cascade do |t|
-    t.integer  "user_work_experience_id", limit: 4
-    t.integer  "gig_skills_id",           limit: 4
+    t.integer  "gig_skills_id", limit: 4
     t.boolean  "active"
-    t.string   "title",                   limit: 255
-    t.text     "description",             limit: 65535
+    t.string   "title",         limit: 255
+    t.text     "description",   limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -216,7 +216,8 @@ table {
 
 td,
 th {
-  padding: 0;
+  padding: 15px;
+  text-align: center;
 }
 
 @media print {
@@ -255,6 +256,9 @@ th {
     display: table-header-group;
   }
 
+  tr {
+    border: 1px solid black;
+  }
   tr,
   img {
     page-break-inside: avoid;
