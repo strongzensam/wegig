@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "users#index"
   resources :skills
   resources :users
+  resources :work_experiences
 
 end

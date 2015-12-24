@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   
   def index 
-    redirect_to "/users/#{current_user.id}"
+    if current_user
+      redirect_to "/users/#{current_user.id}"
+    else
+      redirect_to "/users/sign_in"
+    end
   end
 
   def show

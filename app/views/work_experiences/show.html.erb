@@ -1,0 +1,24 @@
+<div class="col-md-2">
+</div>
+<h1><%= "Skills used for #{@work_experience.title}" %></h1>
+
+<hr>
+
+  <div id="tasks-list" class="tasks-wrapper">
+    <% @work_experience.skills.each do |skill| %>
+        <table class="table-striped">
+          <tr>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%= skill.name%></strong></span>
+
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= skill.description %></span>
+            </td>
+          </tr>
+          <% end %>
+
+        </table>
+  </div>
