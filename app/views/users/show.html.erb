@@ -58,7 +58,7 @@
                     </td>
                       <td>
                       <input type="checkbox" class="icheck"> 
-                      <span class="body"><%= work_experience.user_work_experiences.find_by(work_experience.id).role %></span>
+                      <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{current_user.id}").role %></span>
                     </td>
                     <td>
                       <input type="checkbox" class="icheck"> 
@@ -119,7 +119,7 @@
                     <tr>
                     <td>
                       <input type="checkbox" class="icheck"> 
-                      <span class="body"><strong><%= skill.name %></strong></span>
+                      <span class="body"><strong><%= link_to skill.name, "/skills/#{skill.id}" %></strong></span>
                       
                     </td>
                     <td>
