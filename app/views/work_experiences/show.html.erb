@@ -27,3 +27,25 @@
 
         </table>
   </div>
+  <hr>
+
+<h1><%= "Musicians who worked on" %></h1>
+<h1><%=" #{@work_experience.title}" %></h1>
+
+  <div id="tasks-list" class="tasks-wrapper">
+    <table class="table-striped">
+        <% @work_experience.users.each do |user| %>
+          <tr>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%= user.full_name%></strong></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= link_to "Click here to see more about this user", "/users/#{user.id}"%></span>
+            </td>
+          </tr>
+          <% end %>
+
+        </table>
+  </div>

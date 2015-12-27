@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions" }
-  root to: "users#index"
+  root to: "users#home"
   get "users/home/:full_name_route", to: "users#home"
   resources :skills
   resources :users
