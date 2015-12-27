@@ -15,5 +15,8 @@ class User < ActiveRecord::Base
   def full_name
     return "#{first_name} #{last_name}"
   end
+ def full_name_route
+    return "#{first_name}_#{last_name}"
+  end
 
 end

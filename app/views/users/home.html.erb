@@ -23,7 +23,7 @@
 
           <div class="tab-pane active fade in p-30" id="dashboard">
 
-            <h1 class="text-center font-w-100"><span class="text-blue"><%= @user.full_name %></span></h1>
+            <h1 class="text-center font-w-100">Welcome back <span class="text-blue"><%= current_user.full_name %></span></h1>
  
  
             <div class="row">
@@ -49,7 +49,7 @@
 
                 <div id="tasks-list" class="tasks-wrapper">
                   <table class="table-striped">
-                  <% @user.work_experiences.each do |work_experience| %>
+                  <% current_user.work_experiences.each do |work_experience| %>
                     <tr>
                     <td>
                       <input type="checkbox" class="icheck"> 
@@ -58,7 +58,7 @@
                     </td>
                       <td>
                       <input type="checkbox" class="icheck"> 
-                      <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></span>
+                      <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{current_user.id}").role %></span>
                     </td>
                     <td>
                       <input type="checkbox" class="icheck"> 
@@ -89,7 +89,7 @@
 
           <div class="tab-pane active fade in p-30" id="skills">
 
-            <h1 class="text-center font-w-100">Here are your skills <span class="text-blue"><%= @user.first_name %></span></h1>
+            <h1 class="text-center font-w-100">Here are your skills <span class="text-blue"><%= current_user.first_name %></span></h1>
          
 
             <div class="row">
@@ -115,7 +115,7 @@
 
                 <div id="tasks-list" class="tasks-wrapper">
                   <table class="table-striped">
-                  <% @user.skills.each do |skill| %>
+                  <% current_user.skills.each do |skill| %>
                     <tr>
                     <td>
                       <input type="checkbox" class="icheck"> 
