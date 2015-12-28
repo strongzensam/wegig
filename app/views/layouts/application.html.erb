@@ -19,10 +19,11 @@
         <a href="https://wrapbootstrap.com/theme/sugoi-admin-WB0H6TMC9" type="button" class="btn btn-default navbar-btn navbar-right btn-primary m-r-30 mm-r-10">Purchase</a>
         <div class="navbar-dropdown navbar-right navbar-avatar">
           <a href="#" data-target="#topavatar-toggle" class="hover-no-underline dropdown-toggle m-lr-30 mm-lr-10" data-toggle="dropdown">
-         
+         <% if current_user %>
             <span class="text-gray-light hidden-sm hidden-xs"><%= current_user.full_name%></span>
             <span class="caret text-white hidden-sm hidden-xs"></span>
           </a>
+          <% end %>
           <ul id="topavatar-toggle" class="dropdown-menu avatar-dropdown">
             <li><a href="/users/2">Jake Bass</a></li>
             <li><a href="/users">Users</a></li>

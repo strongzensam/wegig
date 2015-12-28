@@ -7,6 +7,10 @@
 
   <div id="tasks-list" class="tasks-wrapper">
     <table class="table-striped">
+    <tr>
+      <th>Skill</th>
+      <th>Description</th>
+    </tr>
         <% @work_experience.skills.each do |skill| %>
           <tr>
             <td>
@@ -27,6 +31,7 @@
 
         </table>
   </div>
+  
   <hr>
 
 <h1><%= "Musicians who worked on" %></h1>
@@ -34,15 +39,24 @@
 
   <div id="tasks-list" class="tasks-wrapper">
     <table class="table-striped">
+    <tr>
+      <th>Musician</th>
+      <th>Role for this Gig</th>
+      <th>Bio</th>
+    </tr>
         <% @work_experience.users.each do |user| %>
           <tr>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><strong><%= user.full_name%></strong></span>
+              <span class="body"><strong><%= link_to user.full_name, "/users/#{user.id}"%></strong></span>
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><%= link_to "Click here to see more about this user", "/users/#{user.id}"%></span>
+              <span class="body"><%= "#{user.user_work_experiences.find_by(user_id: "#{user.id}").role}"%></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= user.short_bio%></span>
             </td>
           </tr>
           <% end %>

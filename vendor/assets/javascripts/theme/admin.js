@@ -43,13 +43,13 @@
         arrowShow: false
       });
     }
-    if ($('#dashboard-page').length > 0) {
-      $.notify("Welcome back Jack", 'info', {
-        autoHide: true,
-        autoHideDelay: 5000,
-        arrowShow: false
-      });
-    }
+    // if ($('#dashboard-page').length > 0) {
+    //   $.notify("Welcome back Jack", 'info', {
+    //     autoHide: true,
+    //     autoHideDelay: 5000,
+    //     arrowShow: true
+    //   });
+    // }
     $(".mosaicflow__item").each(function() {
       var path, pathConfig, s;
       s = Snap(this.querySelector('svg'));

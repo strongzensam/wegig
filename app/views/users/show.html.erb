@@ -40,9 +40,9 @@
                   </div>
   
 
-                   <h1>Work Experience</h1>
       
                 </div>
+                <h1>Work Experience</h1>
 
                 <hr class="m-b-0">
                   
@@ -53,16 +53,16 @@
                     <tr>
                     <td>
                       <input type="checkbox" class="icheck"> 
-                      <span class="body"><strong><a href=<%="/work_experiences/#{work_experience.id}"%>><%="#{work_experience.title}"%></strong></span>
+                      <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
                       
-                    </td>
-                      <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></span>
                     </td>
                     <td>
                       <input type="checkbox" class="icheck"> 
                       <span class="body"><%= work_experience.description %></span>
+                    </td>
+                      <td>
+                      <input type="checkbox" class="icheck"> 
+                      <span class="body"><strong><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></strong></span>
                     </td>
                     <td>
                       <input type="checkbox" class="icheck"> 
