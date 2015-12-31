@@ -1,145 +1,143 @@
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#dashboard" data-toggle="tab">
-            <div class="text-small">Manage your</div>
-            <span class="text-uppercase">Dashboard</span>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#dashboard" data-toggle="tab">
+      <div class="text-small">Manage your</div>
+      <span class="text-uppercase">Dashboard</span>
 
-          </a>
-        </li>
-        <li>
-          <a href="#skills" data-toggle="tab">
-            <div class="text-small">View/Edit your</div>
-            <span class="text-uppercase">Skills</span>
+    </a>
+  </li>
+  <li>
+    <a href="#skills" data-toggle="tab">
+      <div class="text-small">View/Edit your</div>
+      <span class="text-uppercase">Skills</span>
 
-          </a>
-        </li>
-         
-      </ul>
-      
-      <!-- DASHBOARD TAB -->      
-      <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
+    </a>
+  </li>
 
-        <div class="tab-content">
+</ul>
 
-          <div class="tab-pane active fade in p-30" id="dashboard">
+<!-- DASHBOARD TAB -->      
+<div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
 
-            <h1 class="text-center font-w-100"><span class="text-blue"><%= @user.full_name %></span></h1>
- 
- 
-            <div class="row">
-              
-              <div class="col-sm-12 m-b-30">
+  <div class="tab-content">
 
-                <div class="pos-rel">
-                  <div class="iconmelon m-r-10">
-                    <svg viewBox="0 0 32 32">
-                      <g filter="">
-                        <use xlink:href="#receipt-shopping"></use>
-                      </g>
-                    </svg>
-                  </div>
-  
+    <div class="tab-pane active fade in p-30" id="dashboard">
 
-      
-                </div>
-                <h1>Work Experience</h1>
+      <h1 class="text-center font-w-100"><span class="text-blue"><%= @user.full_name %></span></h1>
 
-                <hr class="m-b-0">
-                  
+    <div class="row">
+      <div class="col-md-6">
+        <img class = "center-block img-responsive"src = "<%= @user.images.first.url %>"/>
+      </div>
+      <div class="col-md-6">
+        <%= @user.short_bio %>
+      </div>
+    </div>
 
-                <div id="tasks-list" class="tasks-wrapper">
-                  <table class="table-striped">
-                  <% @user.work_experiences.each do |work_experience| %>
-                    <tr>
-                    <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
-                      
-                    </td>
-                    <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><%= work_experience.description %></span>
-                    </td>
-                      <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><strong><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></strong></span>
-                    </td>
-                    <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").description %></span>
-                    </td>
-                  </tr>
-                  <% end %>
+      <div class="col-sm-12 m-b-30">
 
-                  </table>
+        <!-- <div class="pos-rel"> -->
+<!--                   <div class="iconmelon m-r-10">
+          <svg viewBox="0 0 32 32">
+            <g filter="">
+              <use xlink:href="#receipt-shopping"></use>
+            </g>
+          </svg>
+        </div> -->
+      </div>
 
-                </div>
+      <h1>Work Experience</h1>
 
-              </div>
+      <hr class="m-b-0">
 
 
+      <div id="tasks-list" class="tasks-wrapper">
+        <table class="table-striped">
+          <% @user.work_experiences.each do |work_experience| %>
+          <tr>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
 
-       
-             </div>
-              
-            </div>
-          </div>
-          </div>
-          
-          <!-- SKILLS TAB -->
-      <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= work_experience.description %></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></strong></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").description %></span>
+            </td>
+          </tr>
+          <% end %>
 
-        <div class="tab-content">
+        </table>
+      </div>
+    </div>
 
-          <div class="tab-pane active fade in p-30" id="skills">
 
-            <h1 class="text-center font-w-100">Here are your skills <span class="text-blue"><%= @user.first_name %></span></h1>
-         
+    <!-- SKILLS TAB -->
+    <!--  <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light"> -->
 
-            <div class="row">
-              
-              <div class="col-sm-12 m-b-30">
+    <!--   <div class="tab-content"> -->
 
-                <div class="pos-rel">
-                  <div class="iconmelon m-r-10">
-                    <svg viewBox="0 0 32 32">
-                      <g filter="">
-                        <use xlink:href="#receipt-shopping"></use>
-                      </g>
-                    </svg>
-                  </div>
-  
-               
-                   <h1>Skills</h1>
-       
-                </div>
+    <div class="tab-pane p-30" id="skills">
 
-                <hr class="m-b-0">
-                  
+      <h1 class="text-center font-w-100">Here are your skills <span class="text-blue"><%= @user.first_name %></span></h1>
 
-                <div id="tasks-list" class="tasks-wrapper">
-                  <table class="table-striped">
-                  <% @user.skills.each do |skill| %>
-                    <tr>
-                    <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><strong><%= link_to skill.name, "/skills/#{skill.id}" %></strong></span>
-                      
-                    </td>
-                    <td>
-                      <input type="checkbox" class="icheck"> 
-                      <span class="body"><%= skill.description %></span>
-                    </td>
-                  </tr>
-                  <% end %>
 
-                  </table>
+      <div class="row">
 
-                </div>
+        <div class="col-sm-12 m-b-30">
 
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-         
+          <div class="pos-rel">
+        <!-- <div class="iconmelon m-r-10">
+          <svg viewBox="0 0 32 32">
+            <g filter="">
+              <use xlink:href="#receipt-shopping"></use>
+            </g>
+          </svg>
+        </div> -->
+
+
+      </div>
+      <h1>Skills</h1>
+
+
+      <hr class="m-b-0">
+
+
+      <div id="tasks-list" class="tasks-wrapper">
+        <table class="table-striped">
+          <% @user.skills.each do |skill| %>
+          <tr>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%= link_to skill.name, "/skills/#{skill.id}" %></strong></span>
+
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= skill.description %></span>
+            </td>
+          </tr>
+          <% end %>
+
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+

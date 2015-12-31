@@ -337,128 +337,128 @@
         }
       });
     }
-    if ($('a[data-toggle="tab"][href="#newsfeed"]').length > 0) {
-      stats_shown = false;
-      $('a[data-toggle="tab"][href="#newsfeed"]').on('shown.bs.tab', function(e) {
-        var deviceChart, facebook, google, sourceChart, twitter, visitorsChart;
-        if (!stats_shown) {
-          stats_shown = true;
-          visitorsChart = Morris.Line({
-            element: 'visitors-chart',
-            pointFlagColors: ["#2CC0D5"],
-            lineColors: ["#2CC0D5"],
-            resize: true,
-            data: [
-              {
-                date: moment().utc().format("YYYY-MM-DD"),
-                value: 204
-              }, {
-                date: moment().utc().add('days', 1).format("YYYY-MM-DD"),
-                value: 155
-              }, {
-                date: moment().utc().add('days', 2).format("YYYY-MM-DD"),
-                value: 220
-              }, {
-                date: moment().utc().add('days', 3).format("YYYY-MM-DD"),
-                value: 201
-              }, {
-                date: moment().utc().add('days', 4).format("YYYY-MM-DD"),
-                value: 198
-              }, {
-                date: moment().utc().add('days', 5).format("YYYY-MM-DD"),
-                value: 287
-              }, {
-                date: moment().utc().add('days', 6).format("YYYY-MM-DD"),
-                value: 192
-              }
-            ],
-            xkey: 'date',
-            ykeys: ['value'],
-            labels: ['Visitors'],
-            xLabelFormat: function(x) {
-              return moment(x).format("DD MMM");
-            },
-            dateFormat: function(x) {
-              return moment(x).format("dddd DD MMM");
-            }
-          });
-          sourceChart = Morris.Bar({
-            element: 'source-chart',
-            barColors: ["#2CC0D5"],
-            resize: true,
-            data: [
-              {
-                y: 'Search engines',
-                a: 36
-              }, {
-                y: 'Social network',
-                a: 29
-              }, {
-                y: 'Ad campaign',
-                a: 24
-              }, {
-                y: 'Direct traffic',
-                a: 10
-              }, {
-                y: 'Other',
-                a: 11
-              }
-            ],
-            xkey: 'y',
-            ykeys: ['a'],
-            xLabelAngle: 10,
-            labels: ['Source']
-          });
-          deviceChart = Morris.Donut({
-            element: 'device-chart',
-            colors: ["#2CC0D5", "#37D3EA", "#3BE2FB", "#81F6FF", "#A9F8FF"],
-            resize: true,
-            data: [
-              {
-                label: 'iPhone',
-                value: 36
-              }, {
-                label: 'iPhone 3G',
-                value: 29
-              }, {
-                label: 'iPhone 3GS',
-                value: 24
-              }, {
-                label: 'iPhone 4',
-                value: 10
-              }, {
-                label: 'iPhone 5',
-                value: 11
-              }
-            ],
-            formatter: function(y) {
-              return y + "%";
-            }
-          });
-          twitter = [12, 15, 8, 10, 11, 9, 10];
-          $('.twitter-sparkline').sparkline(twitter, {
-            type: 'bar',
-            barColor: '#00ACED',
-            height: 22,
-            barWidth: 8
-          });
-          facebook = [3, 4, 1, 4, 0, 2, 8];
-          $('.facebook-sparkline').sparkline(facebook, {
-            type: 'bar',
-            barColor: '#3b5998',
-            height: 22,
-            barWidth: 8
-          });
-          google = [3, 8, 10, 2, 6, 2, 8];
-          return $('.google-sparkline').sparkline(google, {
-            type: 'bar',
-            barColor: '#DA453D',
-            height: 22,
-            barWidth: 8
-          });
-        }
-      });
-    }
+    // if ($('a[data-toggle="tab"][href="#newsfeed"]').length > 0) {
+    //   stats_shown = false;
+    //   $('a[data-toggle="tab"][href="#newsfeed"]').on('shown.bs.tab', function(e) {
+    //     var deviceChart, facebook, google, sourceChart, twitter, visitorsChart;
+    //     if (!stats_shown) {
+    //       stats_shown = true;
+    //       visitorsChart = Morris.Line({
+    //         element: 'visitors-chart',
+    //         pointFlagColors: ["#2CC0D5"],
+    //         lineColors: ["#2CC0D5"],
+    //         resize: true,
+    //         data: [
+    //           {
+    //             date: moment().utc().format("YYYY-MM-DD"),
+    //             value: 204
+    //           }, {
+    //             date: moment().utc().add('days', 1).format("YYYY-MM-DD"),
+    //             value: 155
+    //           }, {
+    //             date: moment().utc().add('days', 2).format("YYYY-MM-DD"),
+    //             value: 220
+    //           }, {
+    //             date: moment().utc().add('days', 3).format("YYYY-MM-DD"),
+    //             value: 201
+    //           }, {
+    //             date: moment().utc().add('days', 4).format("YYYY-MM-DD"),
+    //             value: 198
+    //           }, {
+    //             date: moment().utc().add('days', 5).format("YYYY-MM-DD"),
+    //             value: 287
+    //           }, {
+    //             date: moment().utc().add('days', 6).format("YYYY-MM-DD"),
+    //             value: 192
+    //           }
+    //         ],
+    //         xkey: 'date',
+    //         ykeys: ['value'],
+    //         labels: ['Visitors'],
+    //         xLabelFormat: function(x) {
+    //           return moment(x).format("DD MMM");
+    //         },
+    //         dateFormat: function(x) {
+    //           return moment(x).format("dddd DD MMM");
+    //         }
+    //       });
+    //       sourceChart = Morris.Bar({
+    //         element: 'source-chart',
+    //         barColors: ["#2CC0D5"],
+    //         resize: true,
+    //         data: [
+    //           {
+    //             y: 'Search engines',
+    //             a: 36
+    //           }, {
+    //             y: 'Social network',
+    //             a: 29
+    //           }, {
+    //             y: 'Ad campaign',
+    //             a: 24
+    //           }, {
+    //             y: 'Direct traffic',
+    //             a: 10
+    //           }, {
+    //             y: 'Other',
+    //             a: 11
+    //           }
+    //         ],
+    //         xkey: 'y',
+    //         ykeys: ['a'],
+    //         xLabelAngle: 10,
+    //         labels: ['Source']
+    //       });
+    //       deviceChart = Morris.Donut({
+    //         element: 'device-chart',
+    //         colors: ["#2CC0D5", "#37D3EA", "#3BE2FB", "#81F6FF", "#A9F8FF"],
+    //         resize: true,
+    //         data: [
+    //           {
+    //             label: 'iPhone',
+    //             value: 36
+    //           }, {
+    //             label: 'iPhone 3G',
+    //             value: 29
+    //           }, {
+    //             label: 'iPhone 3GS',
+    //             value: 24
+    //           }, {
+    //             label: 'iPhone 4',
+    //             value: 10
+    //           }, {
+    //             label: 'iPhone 5',
+    //             value: 11
+    //           }
+    //         ],
+    //         formatter: function(y) {
+    //           return y + "%";
+    //         }
+    //       });
+    //       twitter = [12, 15, 8, 10, 11, 9, 10];
+    //       $('.twitter-sparkline').sparkline(twitter, {
+    //         type: 'bar',
+    //         barColor: '#00ACED',
+    //         height: 22,
+    //         barWidth: 8
+    //       });
+    //       facebook = [3, 4, 1, 4, 0, 2, 8];
+    //       $('.facebook-sparkline').sparkline(facebook, {
+    //         type: 'bar',
+    //         barColor: '#3b5998',
+    //         height: 22,
+    //         barWidth: 8
+    //       });
+    //       google = [3, 8, 10, 2, 6, 2, 8];
+    //       return $('.google-sparkline').sparkline(google, {
+    //         type: 'bar',
+    //         barColor: '#DA453D',
+    //         height: 22,
+    //         barWidth: 8
+    //       });
+    //     }
+    //   });
+    // }
     if ($(".widgets").length > 0) {
       data = [12, 15, 8, 10, 11, 9, 10];
       $('.ui-sparkline').sparkline(data, {

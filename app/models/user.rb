@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :work_experiences, through: :user_work_experiences
   has_many :user_skills
   has_many :skills, through: :user_skills
+  has_many :user_images
+  has_many :images, through: :user_images
 
 
   def full_name
