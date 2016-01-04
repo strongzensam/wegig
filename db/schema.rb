@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228004049) do
+ActiveRecord::Schema.define(version: 20160103225607) do
+
+  create_table "endorsees", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "endorsements", force: :cascade do |t|
-    t.integer  "skill_id",           limit: 4
-    t.integer  "user_id",            limit: 4
     t.integer  "work_experience_id", limit: 4
     t.text     "content",            limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "endorsee_id",        limit: 4
+    t.integer  "endorser_id",        limit: 4
+  end
+
+  create_table "endorsers", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +60,20 @@ ActiveRecord::Schema.define(version: 20151228004049) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_players", force: :cascade do |t|
+    t.text     "media_player_code", limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",           limit: 4
+  end
+
+  create_table "skill_endorsements", force: :cascade do |t|
+    t.integer  "endorsement_id", limit: 4
+    t.integer  "skill_id",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end

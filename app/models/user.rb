@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :skills, through: :user_skills
   has_many :user_images
   has_many :images, through: :user_images
+  has_many :media_players
+  belongs_to :endorser
+  belongs_to :endorsee
 
 
   def full_name

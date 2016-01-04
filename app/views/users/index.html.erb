@@ -3,12 +3,13 @@
 <tr>
   <th>Musician</th>
   <th>Bio</th>
+  <th></th>
 </tr>
 <tr>
 <% @users.each do |user| %>
-<td>
-  <%= link_to "#{user.full_name}", "/users/#{user.id}" %></td>
+  <td><%= link_to "#{user.full_name}", "/users/#{user.id}" %></td>
   <td><%= user.short_bio %></td>
+  <td><%= image_tag "#{user.images.first.url}" %></td>
   </tr>
 <% end %>
 </table>

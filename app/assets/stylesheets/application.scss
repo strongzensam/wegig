@@ -31,8 +31,11 @@ h1 {
 td {
   max-width: 500px
 }
-.table-striped{
+.table-striped {
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
+}
+.padded {
+  padding: 25px;
 }

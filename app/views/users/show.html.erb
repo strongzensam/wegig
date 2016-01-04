@@ -1,15 +1,22 @@
 <ul class="nav nav-tabs">
   <li class="active">
     <a href="#dashboard" data-toggle="tab">
-      <div class="text-small">Manage your</div>
-      <span class="text-uppercase">Dashboard</span>
+      <div class="text-small">Here is</div>
+      <span class="text-blue text-uppercase">MyGig</span>
 
     </a>
   </li>
   <li>
     <a href="#skills" data-toggle="tab">
-      <div class="text-small">View/Edit your</div>
+      <div class="text-small">View my</div>
       <span class="text-uppercase">Skills</span>
+
+    </a>
+  </li>
+  <li>
+    <a href="#endorsements" data-toggle="tab">
+      <div class="text-small">View my</div>
+      <span class="text-uppercase">Endorsements</span>
 
     </a>
   </li>
@@ -25,14 +32,14 @@
 
       <h1 class="text-center font-w-100"><span class="text-blue"><%= @user.full_name %></span></h1>
 
-    <div class="row">
-      <div class="col-md-6">
-        <img class = "center-block img-responsive"src = "<%= @user.images.first.url %>"/>
+      <div class="row">
+        <div class="col-md-6 padded">
+          <img class = "center-block img-responsive"src = "<%= @user.images.first.url %>"/>
+        </div>
+        <div class="col-md-6 padded">
+          <%= @user.short_bio %>
+        </div>
       </div>
-      <div class="col-md-6">
-        <%= @user.short_bio %>
-      </div>
-    </div>
 
       <div class="col-sm-12 m-b-30">
 
@@ -46,48 +53,60 @@
         </div> -->
       </div>
 
-      <h1>Work Experience</h1>
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Work Experience</h1>
 
-      <hr class="m-b-0">
+          <hr class="m-b-0">
 
+          <div id="tasks-list">
+            <table class="table-striped">
+              <% @user.work_experiences.each do |work_experience| %>
+              <tr>
+                <td>
+                  <input type="checkbox" class="icheck"> 
+                  <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
 
-      <div id="tasks-list" class="tasks-wrapper">
-        <table class="table-striped">
-          <% @user.work_experiences.each do |work_experience| %>
-          <tr>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
+                </td>
+                <td>
+                  <input type="checkbox" class="icheck"> 
+                  <span class="body"><%= work_experience.description %></span>
+                </td>
+                <td>
+                  <input type="checkbox" class="icheck"> 
+                  <span class="body"><strong><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></strong></span>
+                </td>
+                <td>
+                  <input type="checkbox" class="icheck"> 
+                  <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").description %></span>
+                </td>
+              </tr>
+              <% end %>
 
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><%= work_experience.description %></span>
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><strong><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></strong></span>
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").description %></span>
-            </td>
-          </tr>
-          <% end %>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-center">Media</h3>
+          <hr class="m-b-0">
+          <% if @user.media_players.first %>
 
-        </table>
+          <!-- <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/9386111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe> -->
+
+          <%= @user.media_players.first.media_player_code.html_safe %>
+          <% else %>
+          <p>This place is reserved for a media player like soundcloud or reverb nation!  To embed a player here simply follow these instructions!</p>
+          <% end %> 
+        </div>
+
       </div>
     </div>
 
-
     <!-- SKILLS TAB -->
-    <!--  <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light"> -->
-
-    <!--   <div class="tab-content"> -->
 
     <div class="tab-pane p-30" id="skills">
 
-      <h1 class="text-center font-w-100">Here are your skills <span class="text-blue"><%= @user.first_name %></span></h1>
+      <h1 class="text-center font-w-100">Here are your Skills <span class="text-blue"><%= @user.first_name %></span></h1>
 
 
       <div class="row">
@@ -105,13 +124,15 @@
 
 
       </div>
+
+     
       <h1>Skills</h1>
 
 
       <hr class="m-b-0">
 
 
-      <div id="tasks-list" class="tasks-wrapper">
+      <div id="tasks-list">
         <table class="table-striped">
           <% @user.skills.each do |skill| %>
           <tr>
@@ -130,9 +151,75 @@
         </table>
 
       </div>
-
     </div>
   </div>
+</div>
+      <!-- ENDORSEMENTS -->
+      <div class="tab-pane p-30" id="endorsements">
+
+        <h1 class="text-center font-w-100">Here are your Endorsements<span class="text-blue"><%= @user.first_name %></span></h1>
+
+
+        <div class="row">
+
+          <div class="col-sm-12 m-b-30">
+
+            <div class="pos-rel">
+        <!-- <div class="iconmelon m-r-10">
+          <svg viewBox="0 0 32 32">
+            <g filter="">
+              <use xlink:href="#receipt-shopping"></use>
+            </g>
+          </svg>
+        </div> -->
+                </div>
+
+
+       
+      
+      <h1>Endorsments</h1>
+
+
+      <hr class="m-b-0">
+
+
+      <div id="tasks-list">
+        <table class="table-striped">
+        <tr>
+          <th>Endorser</th>
+          <th>Endorsement</th>
+          <th>Associated Skills</th>
+        </tr>
+          <% @user.work_experiences.each do |work_experience| %>
+            <% work_experience.endorsements.each do |endorsement| %>
+          <tr>
+          <% if endorsement.endorsee.user.full_name == @user.full_name %>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= endorsement.endorser.user.full_name %></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= endorsement.content %></span>
+            </td> 
+            <td>
+              <input type="checkbox" class="icheck">
+              <% endorsement.skills.each do |skill| %> 
+              <span class="body"><%= "#{skill.name}, " %></span>
+              <% end %>
+            </td> 
+          </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
 
 
