@@ -21,8 +21,7 @@
     </a>
   </li>
 
-</ul>
-
+</ul> 
 <!-- DASHBOARD TAB -->      
 <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
 
@@ -52,6 +51,12 @@
           </svg>
         </div> -->
       </div>
+      <div ng-app="app"ng-controller="endorsementCtrl"ng-init="setup()">
+      <p ng-repeat="endorsement in endorsements track by $index">{{endorsement.endorser}}</p>
+      <p ng-click="toggleVisibility(endorsement)"ng-repeat="endorsement in endorsements track by $index"ng-if="!endorsement.visibility">
+                  {{endorsement.content}}
+        </p>
+      </div>
 
       <div class="row">
         <div class="col-md-8">
@@ -64,26 +69,25 @@
               <% @user.work_experiences.each do |work_experience| %>
               <tr>
                 <td>
-                  <input type="checkbox" class="icheck"> 
                   <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
 
                 </td>
                 <td>
-                  <input type="checkbox" class="icheck"> 
                   <span class="body"><%= work_experience.description %></span>
                 </td>
-                <td>
-                  <input type="checkbox" class="icheck"> 
+                <td> 
                   <span class="body"><strong><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").role %></strong></span>
                 </td>
                 <td>
-                  <input type="checkbox" class="icheck"> 
+                 
                   <span class="body"><%= work_experience.user_work_experiences.find_by(user_id: "#{@user.id}").description %></span>
                 </td>
+                
               </tr>
               <% end %>
 
             </table>
+            
           </div>
         </div>
         <div class="col-md-4">
@@ -103,123 +107,10 @@
     </div>
 
     <!-- SKILLS TAB -->
-
-    <div class="tab-pane p-30" id="skills">
-
-      <h1 class="text-center font-w-100">Here are your Skills <span class="text-blue"><%= @user.first_name %></span></h1>
-
-
-      <div class="row">
-
-        <div class="col-sm-12 m-b-30">
-
-          <div class="pos-rel">
-        <!-- <div class="iconmelon m-r-10">
-          <svg viewBox="0 0 32 32">
-            <g filter="">
-              <use xlink:href="#receipt-shopping"></use>
-            </g>
-          </svg>
-        </div> -->
-
-
-      </div>
-
-     
-      <h1>Skills</h1>
-
-
-      <hr class="m-b-0">
-
-
-      <div id="tasks-list">
-        <table class="table-striped">
-          <% @user.skills.each do |skill| %>
-          <tr>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><strong><%= link_to skill.name, "/skills/#{skill.id}" %></strong></span>
-
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><%= skill.description %></span>
-            </td>
-          </tr>
-          <% end %>
-
-        </table>
-
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "skills" %>
+    
       <!-- ENDORSEMENTS -->
-      <div class="tab-pane p-30" id="endorsements">
-
-        <h1 class="text-center font-w-100">Here are your Endorsements<span class="text-blue"><%= @user.first_name %></span></h1>
-
-
-        <div class="row">
-
-          <div class="col-sm-12 m-b-30">
-
-            <div class="pos-rel">
-        <!-- <div class="iconmelon m-r-10">
-          <svg viewBox="0 0 32 32">
-            <g filter="">
-              <use xlink:href="#receipt-shopping"></use>
-            </g>
-          </svg>
-        </div> -->
-                </div>
-
-
-       
-      
-      <h1>Endorsments</h1>
-
-
-      <hr class="m-b-0">
-
-
-      <div id="tasks-list">
-        <table class="table-striped">
-        <tr>
-          <th>Endorser</th>
-          <th>Endorsement</th>
-          <th>Associated Skills</th>
-        </tr>
-          <% @user.work_experiences.each do |work_experience| %>
-            <% work_experience.endorsements.each do |endorsement| %>
-          <tr>
-          <% if endorsement.endorsee.user.full_name == @user.full_name %>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><%= endorsement.endorser.user.full_name %></span>
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><%= endorsement.content %></span>
-            </td> 
-            <td>
-              <input type="checkbox" class="icheck">
-              <% endorsement.skills.each do |skill| %> 
-              <span class="body"><%= "#{skill.name}, " %></span>
-              <% end %>
-            </td> 
-          </tr>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        </table>
-
-      </div>
-    </div>
-
-  </div>
-</div>
+<%= render "endorsements" %>
 </div>
 
 

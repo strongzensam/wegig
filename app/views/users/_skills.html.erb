@@ -1,0 +1,50 @@
+  <div class="tab-pane p-30" id="skills">
+
+      <h1 class="text-center font-w-100">Here are your Skills <span class="text-blue"><%= @user.first_name %></span></h1>
+
+
+      <div class="row">
+
+        <div class="col-sm-12 m-b-30">
+
+          <div class="pos-rel">
+        <!-- <div class="iconmelon m-r-10">
+          <svg viewBox="0 0 32 32">
+            <g filter="">
+              <use xlink:href="#receipt-shopping"></use>
+            </g>
+          </svg>
+        </div> -->
+
+
+      </div>
+
+     
+      <h1>Skills</h1>
+
+
+      <hr class="m-b-0">
+
+
+      <div id="tasks-list">
+        <table class="table-striped">
+          <% @user.skills.each do |skill| %>
+          <tr>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%= link_to skill.name, "/skills/#{skill.id}" %></strong></span>
+
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= skill.description %></span>
+            </td>
+          </tr>
+          <% end %>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

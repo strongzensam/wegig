@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+//= require angular
 //= require jquery_ujs
-//= require turbolinks
 //= require theme/admin
 //= require theme/backstretch
 //= require theme/bootstrap-select

@@ -1,0 +1,68 @@
+<div class="tab-pane p-30" id="endorsements">
+
+        <h1 class="text-center font-w-100">Here are your Endorsements<span class="text-blue"><%= @user.first_name %></span></h1>
+
+
+        <div class="row">
+
+          <div class="col-sm-12 m-b-30">
+
+            <div class="pos-rel">
+        <!-- <div class="iconmelon m-r-10">
+          <svg viewBox="0 0 32 32">
+            <g filter="">
+              <use xlink:href="#receipt-shopping"></use>
+            </g>
+          </svg>
+        </div> -->
+                </div>
+
+
+       
+      
+      <h1>Endorsements</h1>
+
+
+      <hr class="m-b-0">
+
+
+      <div id="tasks-list">
+        <table class="table-striped">
+        <tr>
+          <th>Endorser</th>
+          <th>Endorsement</th>
+          <th>Associated Skills</th>
+        </tr>
+          <% @user.work_experiences.each do |work_experience| %>
+            <% work_experience.endorsements.each do |endorsement| %>
+          <tr>
+          <% if endorsement.endorsee.user.full_name == @user.full_name %>
+            <td >
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= endorsement.endorser.user.full_name %></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= endorsement.content %></span>
+            </td> 
+            <td>
+              <input type="checkbox" class="icheck">
+              <% endorsement.skills.each do |skill| %> 
+              <span class="body"><%= "#{skill.name}" %><br></span>
+              <% end %>
+            </td> 
+        
+ 
+          </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        </table>
+        
+
+      </div>
+    </div>
+
+  </div>
+</div>
