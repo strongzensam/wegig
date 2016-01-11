@@ -14,6 +14,9 @@
  *= require_tree .
  *= require_self
  */
+// html, body {
+//   height: 100%; margin: 0; padding: 0;
+// }
 img {
   max-height: 300px;
   max-width: 300px;
@@ -38,4 +41,11 @@ td {
 }
 .padded {
   padding: 25px;
+}
+#map {
+  height: 300px;
+  width: 300px;
+}
+iframe {
+  width: 100% !important;
 }

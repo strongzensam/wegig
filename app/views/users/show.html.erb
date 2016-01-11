@@ -21,7 +21,9 @@
     </a>
   </li>
 
-</ul> 
+</ul>
+ 
+
 <!-- DASHBOARD TAB -->      
 <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
 
@@ -32,12 +34,36 @@
       <h1 class="text-center font-w-100"><span class="text-blue"><%= @user.full_name %></span></h1>
 
       <div class="row">
-        <div class="col-md-6 padded">
+        <div class="col-md-4 padded">
           <img class = "center-block img-responsive"src = "<%= @user.images.first.url %>"/>
         </div>
-        <div class="col-md-6 padded">
+        <div class="col-md-4 padded">
           <%= @user.short_bio %>
         </div>
+        <h1>Gigs Played</h1><div id="map"class="col-md-4 padded"ng-app="app"ng-controller="workExperienceCtrl"></div>
+        <script type="text/javascript">
+          var map;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 39.8282109, lng: -98.5817593},
+              zoom: 3,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            var geocoder = new google.maps.Geocoder();
+
+            var address1 = geocoder.geocode({'address': "18 Ascot Lane, Oakland, CA, USA"})
+
+            new google.maps.Marker({
+              position: {lat: address1.geometry.location.lat(), lng:address1.geometry.location.lng()},
+              map: map
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMMPpVWOkUSjnH3AlGrTb_aOKeQp7M2qA&callback=initMap">
+      </script>
+
+
       </div>
 
       <div class="col-sm-12 m-b-30">
@@ -51,12 +77,12 @@
           </svg>
         </div> -->
       </div>
-      <div ng-app="app"ng-controller="endorsementCtrl"ng-init="setup()">
+    <!--   <div ng-app="app"ng-controller="endorsementCtrl"ng-init="setup()">
       <p ng-repeat="endorsement in endorsements track by $index">{{endorsement.endorser}}</p>
       <p ng-click="toggleVisibility(endorsement)"ng-repeat="endorsement in endorsements track by $index"ng-if="!endorsement.visibility">
                   {{endorsement.content}}
         </p>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col-md-8">
@@ -118,4 +144,5 @@
 </div>
 </div>
 </div>
+
 

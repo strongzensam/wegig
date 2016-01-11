@@ -7,4 +7,7 @@ class WorkExperience < ActiveRecord::Base
     has_many :endorsements
 
 
+    def address
+      [street, city, state, country].compact.join(', ')
+    end
 end
