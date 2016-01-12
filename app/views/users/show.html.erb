@@ -25,6 +25,7 @@
  
 
 <!-- DASHBOARD TAB -->      
+<% if @user.images.first && @user.short_bio %>
 <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
 
   <div class="tab-content">
@@ -36,13 +37,17 @@
       <div class="row">
         <div class="col-md-4 padded">
           <img class = "center-block img-responsive"src = "<%= @user.images.first.url %>"/>
+        
         </div>
         <div class="col-md-4 padded">
+ 
           <%= @user.short_bio %>
+
+    <% end %>
         </div>
-        <h1>Gigs Played</h1><div id="map"class="col-md-4 padded"ng-app="app"ng-controller="workExperienceCtrl"></div>
+<!--         <h1>Gigs Played</h1><div id="map"class="col-md-4 padded"ng-app="app"ng-controller="workExperienceCtrl"ng-init="setup(<%= @user.id %>)">
         <script type="text/javascript">
-          var map;
+        var map;
           function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: 39.8282109, lng: -98.5817593},
@@ -50,18 +55,11 @@
               mapTypeId: google.maps.MapTypeId.ROADMAP
             });
             var geocoder = new google.maps.Geocoder();
+          }; </script>
+           <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMMPpVWOkUSjnH3AlGrTb_aOKeQp7M2qA&callback=initMap"></script>
+        </div> -->
 
-            var address1 = geocoder.geocode({'address': "18 Ascot Lane, Oakland, CA, USA"})
-
-            new google.maps.Marker({
-              position: {lat: address1.geometry.location.lat(), lng:address1.geometry.location.lng()},
-              map: map
-            });
-          }
-        </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMMPpVWOkUSjnH3AlGrTb_aOKeQp7M2qA&callback=initMap">
-      </script>
+        
 
 
       </div>
@@ -86,7 +84,7 @@
 
       <div class="row">
         <div class="col-md-8">
-          <h1>Work Experience</h1>
+          <h1>Work Experience</h1><% if current_user.id == @user.id %><a onclick="this.click();"href="<%= '/work_experiences/new' %>">add new Work Experience</a><% end %>
 
           <hr class="m-b-0">
 
@@ -112,18 +110,19 @@
               </tr>
               <% end %>
 
+
             </table>
             
           </div>
         </div>
         <div class="col-md-4">
-          <h3 class="text-center">Media</h3>
+          <h3 class="text-center">Media</h3><% if current_user.id == @user.id %><a onclick="this.click();"href="<%= '/media_players/new' %>">add new Media</a><% end %>
           <hr class="m-b-0">
-          <% if @user.media_players.first %>
+          <% if @user.media_players.any? %>
 
           <!-- <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/9386111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe> -->
 
-          <%= @user.media_players.first.media_player_code.html_safe %>
+          <%= @user.media_players.last.media_player_code.html_safe %>
           <% else %>
           <p>This place is reserved for a media player like soundcloud or reverb nation!  To embed a player here simply follow these instructions!</p>
           <% end %> 

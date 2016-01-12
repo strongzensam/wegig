@@ -73,7 +73,9 @@
             <!-- <span class="badge bg-blue-light pull-right text-gray-dark brad-small">4</span> -->
           </a>
         </li>
-        <li><a href="gallery.html" class="text-left">Gallery</a></li>
+        <% if @user %>
+        <li><%= link_to "Media Player Gallery", "/media_players?user_id=#{@user.id}" %></li>
+        <% end %>
         <li>
           <a href="#" class="text-left dropdown-toggle" data-toggle="dropdown">
             UI Elements

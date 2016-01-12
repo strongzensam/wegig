@@ -1,0 +1,8 @@
+<% @media_players.each do |media_player| %>
+
+  <% if media_player.user_id == params[:user_id].to_i %>
+    <div id="findable">
+      <%= media_player.media_player_code.html_safe %>
+    </div>
+  <% end %>
+<% end %>

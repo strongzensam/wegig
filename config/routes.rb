@@ -11,5 +11,7 @@ Rails.application.routes.draw do
       resources :work_experiences
     end
   end
+  resources :media_players
+  resources :user_work_experiences
 
 end

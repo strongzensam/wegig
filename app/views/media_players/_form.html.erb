@@ -1,0 +1,17 @@
+<%= form_for @media_player do |f|%>
+  <div>
+    <ul>
+      <% if @media_player && @media_player.errors.any? %>
+        <% @media_player.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<table>
+  <tr><td><%= f.label :media_player_code %></td>
+  <td><%= f.text_area :media_player_code %></td></tr>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  </table>
+  <%= f.submit %>
+<% end %>

@@ -37,7 +37,8 @@
 <h1><%= "Musicians who worked on" %></h1>
 <h1><%=" #{@work_experience.title}" %></h1>
 
-  <div id="tasks-list" class="tasks-wrapper">
+  <div id="tasks-list" >
+  <% users_array = [] %>
     <table class="table-striped">
     <tr>
       <th>Musician</th>
@@ -52,7 +53,7 @@
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><%= "#{user.user_work_experiences.find_by(user_id: "#{user.id}").role}"%></span>
+              <span class="body"><%= "#{user.user_work_experiences.find_by(user_id: "#{user.id}").role}"%><% users_array << user.id%></span>
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
@@ -60,6 +61,14 @@
             </td>
           </tr>
           <% end %>
-
+          <!-- <tr>
+          <td>
+          </td>
+          </tr> -->
         </table>
-  </div>
+          <% if users_array.fetch(current_user.id) %>
+              <h3><%= link_to "Add new User", "/user_work_experiences/new?work_experience_id=#{@work_experience.id}" %></h3>
+              <% end %>
+    </div>
+    
+     

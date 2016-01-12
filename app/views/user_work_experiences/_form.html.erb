@@ -1,0 +1,21 @@
+<%= form_for @user_work_experience do |f|%>
+  <div>
+    <ul>
+      <% if @user_work_experience && @user_work_experience.errors.any? %>
+        <% @user_work_experience.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<table>
+  <tr><td><%= f.label :user %></td>
+  <td><%= f.select(:user_id, @users.collect {|a| ["#{a.first_name + " " + a.last_name}", a.id]}) %></td></tr>  
+  <tr><td><%= f.label :role %></td>
+  <td><%= f.text_field :role %></td></tr>
+  <tr><td><%= f.label :description %></td>
+  <td><%= f.text_area :description %></td></tr>
+  <%= f.hidden_field :work_experience_id, :value => params[:work_experience_id] %>
+  </table>
+  <%= f.submit %>
+<% end %>

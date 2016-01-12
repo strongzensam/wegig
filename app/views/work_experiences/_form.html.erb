@@ -1,0 +1,26 @@
+<%= form_for @work_experience do |f|%>
+  <div>
+    <ul>
+      <% if @work_experience && @work_experience.errors.any? %>
+        <% @work_experience.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<table>
+  <tr><td><%= f.label :title %></td>
+  <td><%= f.text_field :title %></td></tr>
+  <tr><td><%= f.label :description %></td>
+  <td><%= f.text_area :description %></td></tr>
+  <tr><td><%= f.label :city %></td>
+  <td><%= f.text_field :city %></td></tr>
+  <tr><td><%= f.label :street %></td>
+  <td><%= f.text_field :street %></td></tr>  
+  <tr><td><%= f.label :state %></td>
+  <td><%= f.text_field :state %></td></tr>
+  <tr><td><%= f.label :country %></td>
+  <td><%= f.text_field :country %></td></tr>
+  </table>
+  <%= f.submit %>
+<% end %>
