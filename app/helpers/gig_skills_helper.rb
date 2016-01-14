@@ -1,0 +1,2 @@
+module GigSkillsHelper
+end

@@ -6,9 +6,7 @@ class UserWorkExperiencesController < ApplicationController
   def create 
     @user_work_experience = UserWorkExperience.new(user_work_experience_params)
     if @user_work_experience.save
-      # latitude: Geocoder.search(address)[0].latitude,
-      # longitude: Geocoder.search(address)[0].longitude
-      flash[:success] = "Work Experience Created"
+      # flash[:success] = "Work Experience Created"
       redirect_to "/users/#{current_user.id}"
     else
       render :new

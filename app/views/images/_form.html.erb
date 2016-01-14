@@ -1,0 +1,16 @@
+<%= form_for @image do |f|%>
+  <div>
+    <ul>
+      <% if @image && @image.errors.any? %>
+        <% @image.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<table>
+  <tr><td><%= f.label :url %></td>
+  <td><%= f.text_area :url %></td></tr> 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,7 @@
+<!--<% user = @users.find(params[:endorsee_id])%>-->
+<!--<% user_work_experiences = [] %>-->
+<!--<% @work_experiences.each do |work_experience| %>-->
+<!-- <% if work_experience.users.find(user.id) %>-->
+<!-- <% user_work_experiences << work_experience %> -->
+<!-- <% end %> -->
+<!-- <% end %> -->

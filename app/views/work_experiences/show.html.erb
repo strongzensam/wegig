@@ -5,7 +5,7 @@
 
 <hr>
 
-  <div id="tasks-list" class="tasks-wrapper">
+  <div id="tasks-list">
     <table class="table-striped">
     <tr>
       <th>Skill</th>
@@ -30,6 +30,8 @@
           <% end %>
 
         </table>
+        <a href="/gig_skills/new?work_experience_id=<%=@work_experience.id%>" class="btn btn-default">Add new Skill to Work Experience</a>
+
   </div>
   
   <hr>
@@ -66,9 +68,12 @@
           </td>
           </tr> -->
         </table>
-          <% if users_array.fetch(current_user.id) %>
-              <h3><%= link_to "Add new User", "/user_work_experiences/new?work_experience_id=#{@work_experience.id}" %></h3>
-              <% end %>
+        <br>
+          <% if users_array[current_user.id - 1] == current_user.id || users_array.empty? %>
+          <a href="/user_work_experiences/new?work_experience_id=<%=@work_experience.id%>" class="btn btn-default">Add new User to Work Experience</a>
+          
+           <% end %>
+
     </div>
     
      

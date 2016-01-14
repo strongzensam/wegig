@@ -1,0 +1,38 @@
+<div class="tab-pane p-30" id="media">
+
+        <h1 class="text-center font-w-100">Media Gallery</h1>
+
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h1>Pictures</h1>
+
+
+      <hr class="m-b-0">
+
+
+    <% @user.images.each do |image| %>
+        <img class="aligned"src = "<%= image.url %>"/>
+
+    <% end %>  
+
+    </div> 
+  <div class="col-sm-12">
+      <h1>Media Players</h1>
+
+
+      <hr class="m-b-0">
+
+
+    <% @user.media_players.each do |media_player| %>
+        <%= media_player.media_player_code.html_safe %>
+
+    <% end %>  
+
+    </div>
+
+
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+<%= form_for @skill do |f|%>
+  <div>
+    <ul>
+      <% if @skill && @skill.errors.any? %>
+        <% @skill.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<table>
+  <tr><td><%= f.label :name %></td>
+  <td><%= f.text_field :name %></td></tr>   
+  <tr><td><%= f.label :description %></td>
+  <td><%= f.text_area :description %></td></tr> 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit %>
+<% end %>

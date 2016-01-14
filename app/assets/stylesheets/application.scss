@@ -17,6 +17,10 @@
 // html, body {
 //   height: 100%; margin: 0; padding: 0;
 // }
+.aligned > img {
+  height: 100px;
+  width: 100px;
+}
 img {
   max-height: 300px;
   max-width: 300px;
@@ -48,4 +52,10 @@ td {
 }
 iframe {
   width: 100% !important;
+}
+.aligned {
+position:relative;
+display: inline-block;
+float:left;
+padding:10px;
 }

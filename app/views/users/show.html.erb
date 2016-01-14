@@ -1,3 +1,4 @@
+<% if @user.first_name %>
 <ul class="nav nav-tabs">
   <li class="active">
     <a href="#dashboard" data-toggle="tab">
@@ -19,13 +20,19 @@
       <span class="text-uppercase">Endorsements</span>
 
     </a>
+  </li>  
+  <li>
+    <a href="#media" data-toggle="tab">
+      <div class="text-small">View my</div>
+      <span class="text-uppercase">Media</span>
+
+    </a>
   </li>
 
 </ul>
  
 
 <!-- DASHBOARD TAB -->      
-<% if @user.images.first && @user.short_bio %>
 <div class="bg-white b-1px-gray-light b-top-none brad-bottom brad-tr b-bot-2px-gray-light">
 
   <div class="tab-content">
@@ -36,14 +43,18 @@
 
       <div class="row">
         <div class="col-md-4 padded">
+        <% if @user.images.any? %>
           <img class = "center-block img-responsive"src = "<%= @user.images.first.url %>"/>
+          <% else %>
+          <%= link_to image_tag("add_image.png", class: "center-block img-responsive"), "/images/new" %>
+          <% end %>
         
         </div>
         <div class="col-md-4 padded">
  
           <%= @user.short_bio %>
 
-    <% end %>
+ 
         </div>
 <!--         <h1>Gigs Played</h1><div id="map"class="col-md-4 padded"ng-app="app"ng-controller="workExperienceCtrl"ng-init="setup(<%= @user.id %>)">
         <script type="text/javascript">
@@ -84,7 +95,7 @@
 
       <div class="row">
         <div class="col-md-8">
-          <h1>Work Experience</h1><% if current_user.id == @user.id %><a onclick="this.click();"href="<%= '/work_experiences/new' %>">add new Work Experience</a><% end %>
+          <h1>Work Experience</h1>
 
           <hr class="m-b-0">
 
@@ -112,11 +123,21 @@
 
 
             </table>
-            
+            <br>
+            <% if current_user.id == @user.id %>
+
+            <a href="/work_experiences/new" class="btn btn-default">Add New Work Experience</a>
+            <% end %>
           </div>
         </div>
+
+
+
         <div class="col-md-4">
-          <h3 class="text-center">Media</h3><% if current_user.id == @user.id %><a onclick="this.click();"href="<%= '/media_players/new' %>">add new Media</a><% end %>
+          <h3 class="text-center">Media</h3>
+
+
+          
           <hr class="m-b-0">
           <% if @user.media_players.any? %>
 
@@ -126,6 +147,10 @@
           <% else %>
           <p>This place is reserved for a media player like soundcloud or reverb nation!  To embed a player here simply follow these instructions!</p>
           <% end %> 
+          <br>
+          <% if current_user.id == @user.id %>
+          <a href='/media_players/new' class="btn btn-default">Add new Media Player</a>
+          <% end %>
         </div>
 
       </div>
@@ -136,6 +161,8 @@
     
       <!-- ENDORSEMENTS -->
 <%= render "endorsements" %>
+      <!-- MEDIA -->
+<%= render "media" %>
 </div>
 
 
@@ -143,5 +170,8 @@
 </div>
 </div>
 </div>
+<% else %>
+<h1>BUMMER MAN!!!</h1>
+<% end %>
 
 

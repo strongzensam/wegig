@@ -1,0 +1,22 @@
+<%= form_for @endorsement do |f|%>
+  <div>
+    <ul>
+      <% if @endorsement && @endorsement.errors.any? %>
+        <% @endorsement.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+
+
+<table>
+  <tr><td><%= f.label :work_experience_id %></td>
+  <td><%= f.select(:work_experience_id, @work_experiences.collect {|a| ["#{a.title}", a.id]}) %></td></tr> 
+    <tr><td><%= f.label :content %></td>
+    <td><%= f.text_area :content %></td></tr>    
+  <%= f.hidden_field :endorser_id, :value => current_user.id %>
+  <%= f.hidden_field :endorsee_id, :value => params[:endorsee_id] %>
+  </table>
+  <%= f.submit %>
+<% end %>

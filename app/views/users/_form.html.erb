@@ -1,0 +1,20 @@
+<%= form_for @user do |f|%>
+  <div>
+    <ul>
+      <% if @user && @user.errors.any? %>
+        <% @user.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<table>
+  <tr><td><%= f.label :first_name %></td>
+  <td><%= f.text_field :first_name %></td></tr>  
+  <tr><td><%= f.label :last_name %></td>
+  <td><%= f.text_field :last_name %></td></tr>  
+  <tr><td><%= f.label :short_bio %></td>
+  <td><%= f.text_area :short_bio %></td></tr>
+  <%= f.submit %>
+<% end %>
+<% puts "$" * 500 %>

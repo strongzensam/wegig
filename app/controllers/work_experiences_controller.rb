@@ -11,7 +11,7 @@ class WorkExperiencesController < ApplicationController
       # latitude: Geocoder.search(address)[0].latitude,
       # longitude: Geocoder.search(address)[0].longitude
       flash[:success] = "Work Experience Created"
-      redirect_to "/users/#{current_user.id}"
+      redirect_to "/work_experiences/#{@work_experience.id}"
     else
       render :new
     end
