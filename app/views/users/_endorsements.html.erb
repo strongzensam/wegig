@@ -36,7 +36,7 @@
           <% @user.work_experiences.each do |work_experience| %>
             <% work_experience.endorsements.each do |endorsement| %>
           <tr>
-          <% if endorsement.endorsee.user.full_name == @user.full_name %>
+
             <td >
               <input type="checkbox" class="icheck"> 
               <span class="body"><%= endorsement.endorser.user.full_name %></span>
@@ -54,7 +54,7 @@
         
  
           </tr>
-            <% end %>
+
           <% end %>
         <% end %>
 

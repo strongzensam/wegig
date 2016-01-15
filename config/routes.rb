@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :endorsements
       resources :work_experiences
+      resources :public_activities
     end
   end
   resources :media_players
@@ -18,4 +19,5 @@ Rails.application.routes.draw do
   resources :user_skills
   resources :endorsements
   resources :gig_skills
+  resources :public_activities
 end

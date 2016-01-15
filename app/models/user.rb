@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+  include PublicActivity::Model
+    tracked
   has_many :user_work_experiences
   has_many :followers, through: :follow_relationships
   has_many :followees, through: :follow_relationships

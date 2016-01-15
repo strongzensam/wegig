@@ -1,5 +1,6 @@
 class WorkExperience < ActiveRecord::Base
-
+  include PublicActivity::Model
+    tracked 
     has_many :user_work_experiences
     has_many :users, through: :user_work_experiences
     has_many :gig_skills

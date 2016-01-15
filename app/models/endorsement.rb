@@ -1,4 +1,6 @@
 class Endorsement < ActiveRecord::Base
+  include PublicActivity::Model
+    tracked
   belongs_to :work_experience
   belongs_to :endorser
   belongs_to :endorsee

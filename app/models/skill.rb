@@ -1,4 +1,6 @@
 class Skill < ActiveRecord::Base
+  include PublicActivity::Model
+    tracked
   has_many :gig_skills
   has_many :work_experiences, through: :gig_skills  
   has_many :user_skills

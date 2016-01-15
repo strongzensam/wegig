@@ -1,40 +1,8 @@
 <div class="col-md-2">
 </div>
-<h1><%= "Skills used" %></h1>
-<h1><%=" for #{@work_experience.title}" %></h1>
+
 
 <hr>
-
-  <div id="tasks-list">
-    <table class="table-striped">
-    <tr>
-      <th>Skill</th>
-      <th>Description</th>
-    </tr>
-        <% @work_experience.skills.each do |skill| %>
-          <tr>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><strong><%= skill.name%></strong></span>
-
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body"><%= skill.description %></span>
-            </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body">Click here to see other users with this skill</span>
-            </td>
-          </tr>
-          <% end %>
-
-        </table>
-        <a href="/gig_skills/new?work_experience_id=<%=@work_experience.id%>" class="btn btn-default">Add new Skill to Work Experience</a>
-
-  </div>
-  
-  <hr>
 
 <h1><%= "Musicians who worked on" %></h1>
 <h1><%=" #{@work_experience.title}" %></h1>
@@ -75,5 +43,38 @@
            <% end %>
 
     </div>
-    
-     
+
+      <hr>
+
+<h1><%= "Skills used" %></h1>
+<h1><%=" for #{@work_experience.title}" %></h1>
+  <div id="tasks-list">
+    <table class="table-striped">
+      <% work_experiences_array = [] %>
+    <tr>
+      <th>Skill</th>
+      <th>Description</th>
+    </tr>
+        <% @work_experience.skills.each do |skill| %>
+          <tr>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><strong><%= skill.name%></strong></span>
+
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= skill.description %><% work_experiences_array << work_experience.id%></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck"> 
+              <span class="body">Click here to see other users with this skill</span>
+            </td>
+          </tr>
+          <% end %>
+
+        </table>
+        <a href="/gig_skills/new?work_experience_id=<%=@work_experience.id%>" class="btn btn-default">Add new Skill to Work Experience</a>
+
+  </div>
+  
