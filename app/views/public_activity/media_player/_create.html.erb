@@ -1,0 +1,2 @@
+<h3><span class="text-blue text-uppercase"><%= link_to activity.owner.full_name, "/users/#{activity.owner.id}" %></span></h3><%=image_tag activity.owner.images.first.url %><h4>Added Media Player</h4><br>
+<p><%= MediaPlayer.find(activity.trackable_id).media_player_code.html_safe %></p>

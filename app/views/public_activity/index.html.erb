@@ -1,0 +1,17 @@
+<h1>Newsfeed</h1>
+<div ng-app="app">
+  <div ng-controller="publicActivityCtrl"ng-init="setup()">
+  <div ng-repeat="publicActivity in publicActivities">
+<!--   <p>{{publicActivity.trackable_type}}</p> -->
+  </div>
+<p><% @public_activities.each do |activity| %>
+<div id="newsfeed">
+<br>
+<%= render_activity activity %>
+
+<br>
+</div>
+<% end %>
+
+  </div>
+</div>

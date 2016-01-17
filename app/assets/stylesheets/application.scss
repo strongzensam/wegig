@@ -50,9 +50,6 @@ td {
   height: 300px;
   width: 300px;
 }
-iframe {
-  width: 100% !important;
-}
 .aligned {
 position:relative;
 display: inline-block;
@@ -62,10 +59,23 @@ padding:10px;
 #newsfeed > h3{
   text-align: left;
 }
+#newsfeed > iframe {
+  height: 50px !important;
+}
+#newsfeed > img {
+  float: left;
+  width: 100px;
+  height: auto;
+  margin: 15px;
+}
 #newsfeed {
   padding: 25px;
   border: 1px solid lightblue;
   border-radius: 50px;
   margin: 10px;
   text-align: center;
+  background: white;
+}
+iframe {
+  width: 100% !important;
 }

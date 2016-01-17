@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resources :user_skills
   resources :endorsements
   resources :gig_skills
-  resources :public_activities
+  resources :public_activity
 end

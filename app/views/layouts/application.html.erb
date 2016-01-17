@@ -68,14 +68,10 @@
       <ul class="unstyled nav">
         <li class="active"><a href="/" class="text-left">Dashboard</a></li>
         <li>
-          <a href="/public_activities" class="text-left">
-            Index
+          <a href="/public_activity" class="text-left">
+            NewsFeed
             <!-- <span class="badge bg-blue-light pull-right text-gray-dark brad-small">4</span> -->
           </a>
-        </li>
-        <% if @user %>
-        <li><%= link_to "Media Player Gallery", "/media_players?user_id=#{@user.id}" %></li>
-        <% end %>
         <li>
           <a href="#" class="text-left dropdown-toggle" data-toggle="dropdown">
             UI Elements
