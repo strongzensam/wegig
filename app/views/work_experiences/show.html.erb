@@ -13,7 +13,7 @@
     <tr>
       <th>Musician</th>
       <th>Role for this Gig</th>
-      <th>Bio</th>
+      <th>Description</th>
     </tr>
         <% @work_experience.users.each do |user| %>
           <tr>
@@ -23,11 +23,11 @@
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><%= "#{user.user_work_experiences.find_by(user_id: "#{user.id}").role}"%><% users_array << user.id%></span>
+              <span class="body"><%= "#{user.user_work_experiences.find_by(user_id: user.id, work_experience_id: @work_experience.id).role}"%><% users_array << user.id%></span>
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><%= user.short_bio%></span>
+              <span class="body"><%= user.user_work_experiences.find_by(user_id: user.id, work_experience_id: @work_experience.id).description%></span>
             </td>
           </tr>
           <% end %>
@@ -50,7 +50,7 @@
 <h1><%=" for #{@work_experience.title}" %></h1>
   <div id="tasks-list">
     <table class="table-striped">
-      <% work_experiences_array = [] %>
+
     <tr>
       <th>Skill</th>
       <th>Description</th>
@@ -64,7 +64,7 @@
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><%= skill.description %><% work_experiences_array << work_experience.id%></span>
+              <span class="body"><%= skill.description %></span>
             </td>
             <td>
               <input type="checkbox" class="icheck"> 

@@ -1,0 +1,2 @@
+<h3><span class="text-blue"><%= link_to activity.owner.full_name, "/users/#{activity.owner.id}" %></span></h3><%=image_tag activity.owner.images.first.url %><h4> Created Role <%= link_to UserWorkExperience.find(activity.trackable_id).role, "/work_experiences/#{UserWorkExperience.find(activity.trackable_id).work_experience_id}" %> for work experience <%= WorkExperience.find("#{UserWorkExperience.find(activity.trackable_id).work_experience_id}").title %></h4><br>
+<p><%= UserWorkExperience.find(activity.trackable_id).description %></p>

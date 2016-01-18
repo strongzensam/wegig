@@ -8,10 +8,10 @@
       <% end %>
   </ul>
 </div>
-<table>
+
   <tr><td><%= f.label :skill_id %></td>
   <td><%= f.select(:skill_id, @skills.collect {|a| ["#{a.name}", a.id]}) %></td></tr>  
   <%= f.hidden_field :user_id, :value => current_user.id %>
   </table>
-  <%= f.submit %>
+  <%= f.submit "Add Skill to User", class: "btn btn-default" %>
 <% end %>

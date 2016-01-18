@@ -5,25 +5,25 @@
   angular.module("app").controller("workExperienceCtrl", function($scope, $http){
 
     $scope.setup = function(user_id){
-      $http.get("http://localhost:3000/api/v1/work_experiences.json?user_id=" + user_id).then(
+      $http.get("http://localhost:3001/api/v1/work_experiences.json?user_id=" + user_id).then(
         function(response){
           var workExperienceLocations = response.data;
           console.log(workExperienceLocations);
-          // $scope.mapCreate()
           $scope.pinned(workExperienceLocations);
         });
     }
 
     $scope.pinned = function(locationsArray){
         console.log("In Pinned")
-      for (var i = 0; i >= locationsArray.length; i++) {
-        console.log("In Loop")
+      for (var i = 0; i <= locationsArray.length; i++) {
+      console.log("In Loop")
        var latitude = locationsArray[i].latitude
        var longitude = locationsArray[i].longitude
        var marker = new google.maps.Marker({
          position: {lat: latitude, lng: longitude},
          map: map   
        })};
+      $scope.mapCreate();
      };
 
   // $scope.mapCreate = function(){

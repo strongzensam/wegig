@@ -1,0 +1,2 @@
+<h3><span class="text-blue"><%= link_to activity.owner.full_name, "/users/#{activity.owner.id}" %></span></h3><%=image_tag activity.owner.images.first.url %><h4>Added Skill <%= Skill.find(activity.trackable_id).name %></h4><br>
+<p><%= Skill.find(activity.trackable_id).description %></p>

@@ -9,7 +9,7 @@ class WorkExperiencesController < ApplicationController
     @work_experience = WorkExperience.new(work_experience_params)
     if @work_experience.save
       flash[:success] = "Work Experience Created"
-      redirect_to "/work_experiences/#{@work_experience.id}"
+      redirect_to "/user_work_experiences/new?work_experience_id=#{@work_experience.id}"
     else
       render :new
     end

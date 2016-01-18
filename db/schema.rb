@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114045513) do
+ActiveRecord::Schema.define(version: 20160118002700) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 20160114045513) do
     t.string   "country",       limit: 255
     t.float    "latitude",      limit: 24
     t.float    "longitude",     limit: 24
+    t.string   "date",          limit: 255
   end
 
 end
