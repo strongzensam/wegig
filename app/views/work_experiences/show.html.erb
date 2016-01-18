@@ -66,15 +66,11 @@
               <input type="checkbox" class="icheck"> 
               <span class="body"><%= skill.description %></span>
             </td>
-            <td>
-              <input type="checkbox" class="icheck"> 
-              <span class="body">Click here to see other users with this skill</span>
-            </td>
           </tr>
           <% end %>
 
         </table>
-        <a href="/gig_skills/new?work_experience_id=<%=@work_experience.id%>" class="btn btn-default">Add new Skill to Work Experience</a>
+        <a href="/user_skills/new?work_experience_id=<%=@work_experience.id%>" class="btn btn-default">Add Skill to Work Experience</a>
 
   </div>
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118002700) do
+ActiveRecord::Schema.define(version: 20160118205317) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -111,10 +111,11 @@ ActiveRecord::Schema.define(version: 20160118002700) do
   end
 
   create_table "user_skills", force: :cascade do |t|
-    t.integer  "skill_id",   limit: 4
-    t.integer  "user_id",    limit: 4
+    t.integer  "skill_id",           limit: 4
+    t.integer  "user_id",            limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "work_experience_id", limit: 4
   end
 
   create_table "user_work_experiences", force: :cascade do |t|

@@ -28,7 +28,12 @@
 
       <div id="tasks-list">
         <table class="table-striped">
-          <% @user.skills.each do |skill| %>
+        <th>Skill</th>
+        <th>Description</th>
+        <th>Associated Work Experiences</th>
+        <% skills = @user.skills %>
+        <% skills = skills.uniq %>
+          <% skills.each do |skill| %>
           <tr>
             <td>
               <input type="checkbox" class="icheck"> 
@@ -38,6 +43,14 @@
             <td>
               <input type="checkbox" class="icheck"> 
               <span class="body"><%= skill.description %></span>
+            </td>            
+            <td>
+            <% if skill.work_experiences %>
+            <% skill.work_experiences.each do |work_experience| %>
+              <input type="checkbox" class="icheck"> 
+              <span class="body"><%= link_to work_experience.title, "/work_experiences/#{work_experience.id}" %></span><br>
+            <% end %>
+            <% end %>
             </td>
           </tr>
           <% end %>

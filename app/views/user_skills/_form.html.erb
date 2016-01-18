@@ -8,10 +8,20 @@
       <% end %>
   </ul>
 </div>
-
-  <tr><td><%= f.label :skill_id %></td>
-  <td><%= f.select(:skill_id, @skills.collect {|a| ["#{a.name}", a.id]}) %></td></tr>  
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+<% users_array = [] %>
+<% UserWorkExperience.where(work_experience_id: params[:work_experience_id]).each do |user_work_experience|%>
+<% users_array << user_work_experience.user %>
+<% end %>
+<% users_array.uniq! %>
+<div class="form-group">
+  <%= f.label :skill_id %>
+  <%= f.select(:skill_id, @skills.collect {|a| ["#{a.name}", a.id]}) %>
+</div> 
+<div class="form-group">
+  <%= f.label :user_id %>
+  <%= f.select(:user_id, users_array.collect {|a| ["#{a.full_name}", a.id]}) %>
+</div> 
+  <%= f.hidden_field :work_experience_id, :value => params[:work_experience_id] %>
   </table>
-  <%= f.submit "Add Skill to User", class: "btn btn-default" %>
+  <%= f.submit "Add Skill to Work Experience for User", class: "btn btn-default" %>
 <% end %>

@@ -10,26 +10,28 @@
 
     <nav class="navbar navbar-fixed-top not-collapse bg-g-ln-gray" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" class="hover-white-shade-bg">
+        <a class="navbar-brand" href="/users/<%=current_user.id%>" class="hover-white-shade-bg">
           WeGig
           <small class="font-w-100 text-gray-alt hidden-xs hidden-sm">Professional Networking for Professional Musicians</small>
         </a>
       </div>
       <div id="top-nav">
-        <a href="https://wrapbootstrap.com/theme/sugoi-admin-WB0H6TMC9" type="button" class="btn btn-default navbar-btn navbar-right btn-primary m-r-30 mm-r-10">Purchase</a>
+        
         <div class="navbar-dropdown navbar-right navbar-avatar">
           <a href="#" data-target="#topavatar-toggle" class="hover-no-underline dropdown-toggle m-lr-30 mm-lr-10" data-toggle="dropdown">
-         <% if current_user %>
-            <span class="text-gray-light hidden-sm hidden-xs"><%= current_user.full_name%></span>
+
+            <span class="text-gray-light hidden-sm hidden-xs"><%= "Users" %></span>
             <span class="caret text-white hidden-sm hidden-xs"></span>
           </a>
-          <% end %>
           <ul id="topavatar-toggle" class="dropdown-menu avatar-dropdown">
+            <li><a href="/users/1">Sam Schwartz</a></li>
             <li><a href="/users/2">Jake Bass</a></li>
-            <li><a href="/users">Users</a></li>
+            <li><a href="/users/3">Ego</a></li>
+            <li><a href="/users/4">Weirdo</a></li>
+            <li><a href="/users">All Users</a></li>
           </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+<!--         <ul class="nav navbar-nav navbar-right">
           <li>
             <a href="messages.html">
     
@@ -41,7 +43,7 @@
               <span class="hidden-sm hidden-xs">Pages</span>
             </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </nav>
 
@@ -63,6 +65,7 @@
       <hr class="no-margin">
       <% else %>
         <h4><a href="/users/sign_up">Have you signed up yet? </a></h4>
+        <h4><a href="/users/sign_in">Sign in </a></h4>
       <% end %>
 
       <ul class="unstyled nav">
@@ -88,12 +91,12 @@
         <li><a href="settings.html" class="text-left">Settings</a></li>
       </ul> -->
 
-      <div class="bg-gray-dark-shade text-left search">
+<!--       <div class="bg-gray-dark-shade text-left search">
         
         <input type="text" placeholder="Search" class="input-invisible">
       </div>
 
-
+ -->
 
     </div>
 
