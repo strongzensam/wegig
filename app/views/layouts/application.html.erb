@@ -66,7 +66,9 @@
       <% end %>
 
       <ul class="unstyled nav">
+      <% if current_user %>
         <li class="active"><a href="/users/<%= current_user.id %>" class="text-left">Dashboard</a></li>
+        <% end %>
         <li>
           <a href="/public_activity" class="text-left">
             NewsFeed

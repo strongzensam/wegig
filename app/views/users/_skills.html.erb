@@ -46,8 +46,8 @@
         <br>
 
               <% if current_user.id == @user.id %>
-              <%= button_to "Add New Skill to database", '/skills/new', :method => "get" %><br>
-              <%= button_to "Add New Skill to your skills", '/user_skills/new', :method => "get" %><% end %>
+              <%= button_to "Add New Skill to database", '/skills/new', :method => "get", class: "btn btn-default" %><br>
+              <%= button_to "Add New Skill to your skills", '/user_skills/new', :method => "get", class: "btn btn-default" %><% end %>
       </div>
     </div>
   </div>

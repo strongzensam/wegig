@@ -64,9 +64,9 @@ padding:10px;
 }
 #newsfeed > img {
   float: left;
-  width: 100px;
-  height: auto;
-  margin: 15px;
+  width: auto;
+  height: 100px;
+  margin: 5px;
 }
 #newsfeed {
   padding: 25px;
@@ -78,4 +78,9 @@ padding:10px;
 }
 iframe {
   width: 100% !important;
+}
+.right {
+  float: right;
+  color: grey;
+  font-size: 12px;
 }
