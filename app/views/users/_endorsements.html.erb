@@ -1,6 +1,6 @@
 <div class="tab-pane p-30" id="endorsements">
 
-        <h1 class="text-center font-w-100">Here are Endorsements for <span class="text-blue"><%= @user.first_name %></span></h1>
+      <h1 class="text-center font-w-100">Here are Endorsements for <span class="text-blue"><%= @user.first_name %></span></h1>
 
 
         <div class="row">
@@ -39,7 +39,7 @@
 
             <td >
               <input type="checkbox" class="icheck"> 
-              <span class="body"><%= endorsement.endorser.user.full_name %></span>
+              <span class="body"><%= link_to endorsement.endorser.user.full_name, "/users/#{endorsement.endorser.id}" %></span>
             </td>
             <td>
               <input type="checkbox" class="icheck"> 
@@ -60,9 +60,7 @@
 
         </table>
         <br>
-          <% if current_user.id != @user.id %>
-          <a href="/endorsements/new?endorsee_id=<%=@user.id%>" class="btn btn-default">Add new Endorsement</a>
-          <% end %>
+
 
       </div>
     </div>

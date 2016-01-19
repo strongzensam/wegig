@@ -15,7 +15,9 @@
       <th>Role for this Gig</th>
       <th>Description</th>
     </tr>
-        <% @work_experience.users.each do |user| %>
+    <% users = @work_experience.users %>
+    <% users = users.uniq %>
+        <% users.each do |user| %>
           <tr>
             <td>
               <input type="checkbox" class="icheck"> 
@@ -55,7 +57,9 @@
       <th>Skill</th>
       <th>Description</th>
     </tr>
-        <% @work_experience.skills.each do |skill| %>
+      <% skills = @work_experience.skills %>
+      <% skills = skills.uniq %>
+        <% skills.each do |skill| %>
           <tr>
             <td>
               <input type="checkbox" class="icheck"> 
@@ -65,6 +69,14 @@
             <td>
               <input type="checkbox" class="icheck"> 
               <span class="body"><%= skill.description %></span>
+            </td>
+            <td>
+              <input type="checkbox" class="icheck">
+              <% user_skill_array = skill.users %> 
+              <% user_skill_array = user_skill_array.uniq %> 
+              <span class="body"><% user_skill_array.each do |user| %>
+              <%= link_to user.full_name, "/users/#{user.id}" %><br></span>
+              <% end %>
             </td>
           </tr>
           <% end %>

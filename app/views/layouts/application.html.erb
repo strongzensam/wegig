@@ -10,9 +10,9 @@
 
     <nav class="navbar navbar-fixed-top not-collapse bg-g-ln-gray" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/users/<%=current_user.id%>" class="hover-white-shade-bg">
-          WeGig
-          <small class="font-w-100 text-gray-alt hidden-xs hidden-sm">Professional Networking for Professional Musicians</small>
+      
+        <a class="navbar-brand" <% if current_user %>href="/users/<%=current_user.id%>"<%end%> class="hover-white-shade-bg"><img class="logo"src="<%= asset_path('wegig2.png') %>"/><small class="font-w-100 text-gray-alt hidden-xs hidden-sm">
+          Professional Networking for Professional Musicians</small>
         </a>
       </div>
       <div id="top-nav">
@@ -58,7 +58,6 @@
         </a>
       </header>
       <ul id="avatar-toggle" class="dropdown-sidebar-avatar" role="menu" aria-labelledby="dLabel">
-        <li><a href="settings.html">Settings</a></li>
         <li><%= link_to "Sign out","/users/sign_out", method: :delete %></li>
       </ul>
 

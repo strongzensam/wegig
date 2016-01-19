@@ -1,0 +1,4 @@
+<h3><span class="text-blue"><%= link_to activity.owner.full_name, "/users/#{activity.owner.id}" %></span></h3><%=image_tag activity.owner.images.first.url %>
+<h4>Endorsed <%= link_to Endorsement.find(activity.trackable_id).endorsee.user.full_name, "/users/#{Endorsement.find(activity.trackable_id).endorsee.user.id}" %> for <%= link_to Endorsement.find("#{activity.trackable_id}").work_experience.title, "/work_experiences/#{Endorsement.find("#{activity.trackable_id}").work_experience.id}" %></h4><br>
+<p><%= Endorsement.find(activity.trackable_id).content %></p>
+<span class="right">created at <%=activity.created_at.strftime("%A, %d %b %Y %l:%M %p")%></span>

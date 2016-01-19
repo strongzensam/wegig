@@ -95,7 +95,14 @@
 
       <div class="row">
         <div class="col-md-8">
-          <h1>Work Experience</h1>
+          <h1>Work Experience <% if current_user.id != @user.id %>
+          <a href="/endorsements/new?endorsee_id=<%=@user.id%>" class="btn btn-default">Add new Endorsement</a>
+          <% elsif current_user.id == @user.id %>
+
+            <a href="/work_experiences/new" class="btn btn-default">Add New Work Experience</a>
+            
+          <% end %></h1>
+
 
           <hr class="m-b-0">
 
@@ -105,7 +112,9 @@
             <th>Description</th>
             <th>Role</th>
             <th>Role in Experience</th>
-              <% @user.work_experiences.each do |work_experience| %>
+            <% work_experiences = @user.work_experiences.order(created_at: :desc) %>
+            <% work_experiences = work_experiences.uniq %>
+              <% work_experiences.each do |work_experience| %>
               <tr>
                 <td>
                   <span class="body"><strong><%=link_to "#{work_experience.title}", "/work_experiences/#{work_experience.id}"%></strong></span>
@@ -128,17 +137,16 @@
 
             </table>
             <br>
-            <% if current_user.id == @user.id %>
-
-            <a href="/work_experiences/new" class="btn btn-default">Add New Work Experience</a>
-            <% end %>
+            
           </div>
         </div>
 
 
 
         <div class="col-md-4">
-          <h3 class="text-center">Media</h3>
+          <h3 class="text-center">Media<% if current_user.id == @user.id %>
+          <a href='/media_players/new' class="btn btn-default">Add new Media Player</a>
+          <% end %></h3>
 
 
           
@@ -151,10 +159,8 @@
           <% else %>
           <p>This place is reserved for a media player like soundcloud or reverb nation!  To embed a player here simply follow these instructions!</p>
           <% end %> 
-          <br>
-          <% if current_user.id == @user.id %>
-          <a href='/media_players/new' class="btn btn-default">Add new Media Player</a>
-          <% end %>
+
+          
         </div>
 
       </div>

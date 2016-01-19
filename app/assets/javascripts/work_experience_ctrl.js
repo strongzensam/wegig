@@ -15,7 +15,7 @@
 
     $scope.pinned = function(locationsArray){
         console.log("In Pinned")
-      for (var i = 0; i <= locationsArray.length; i++) {
+      for (var i = 0; i < locationsArray.length; i++) {
       console.log("In Loop")
        var latitude = locationsArray[i].latitude
        var longitude = locationsArray[i].longitude
