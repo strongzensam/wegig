@@ -37,7 +37,7 @@
           <tr>
             <td>
               <input type="checkbox" class="icheck"> 
-              <span class="body"><strong><%= link_to skill.name, "/skills/#{skill.id}" %></strong></span>
+              <span class="body"><strong><%= skill.name %></strong></span>
 
             </td>
             <td>
@@ -60,7 +60,7 @@
 
               <% if current_user.id == @user.id %>
               <%= button_to "Add New Skill to database", '/skills/new', :method => "get", class: "btn btn-default" %><br>
-              <%= button_to "Add New Skill to your skills", '/user_skills/new', :method => "get", class: "btn btn-default" %><% end %>
+              <% end %>
       </div>
     </div>
   </div>

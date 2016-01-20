@@ -45,6 +45,7 @@
           </li>
         </ul> -->
       </div>
+
     </nav>
 
     <div class="sidebar bg-gray-dark text-white text-center pushy pushy-left">
@@ -69,13 +70,13 @@
 
       <ul class="unstyled nav">
       <% if current_user %>
-        <li class="active"><a href="/users/<%= current_user.id %>" class="text-left">Dashboard</a></li>
-        <% end %>
-        <li>
+        <li><a href="/users/<%= current_user.id %>" class="text-left">Dashboard</a></li>
+        <li class="">
           <a href="/public_activity" class="text-left">
             NewsFeed
             <!-- <span class="badge bg-blue-light pull-right text-gray-dark brad-small">4</span> -->
           </a>
+        <% end %>
         <!-- <li>
           <a href="#" class="text-left dropdown-toggle" data-toggle="dropdown">
             UI Elements
@@ -114,7 +115,21 @@
 
 
 
+
   </body>
+
+       </div>
+       <div class="row">
+       <div class="col-md-2"></div>
+       <div class = "col-md-10">
+         <% flash.each do |name, message| %>
+         <div class="alert alert-<%= name %> alert-dismissable" role="alert">
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <%= message.html_safe %>
+         </div>
+         <% end %>
+       </div>
+       </div>
 
     <div id="container" class="main-content p-30 tp-t-60 tp-lr-10">
 

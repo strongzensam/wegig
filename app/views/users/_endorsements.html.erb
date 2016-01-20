@@ -33,8 +33,8 @@
           <th>Endorsement</th>
           <th>Associated Skills</th>
         </tr>
-          <% @user.work_experiences.each do |work_experience| %>
-            <% work_experience.endorsements.each do |endorsement| %>
+          <% @endorsements.where(endorsee_id: @user.id).each do |endorsement| %>
+
           <tr>
 
             <td >
@@ -55,7 +55,6 @@
  
           </tr>
 
-          <% end %>
         <% end %>
 
         </table>

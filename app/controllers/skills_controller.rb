@@ -12,7 +12,7 @@ class SkillsController < ApplicationController
   @skill = Skill.new(skill_params)
   if @skill.save
     # flash[:success] = "Work Experience Created"
-    redirect_to "/users/#{current_user.id}"
+    redirect_to "/user_skills/new"
   else
     render :new
   end

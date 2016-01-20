@@ -19,11 +19,12 @@
       console.log("In Loop")
        var latitude = locationsArray[i].latitude
        var longitude = locationsArray[i].longitude
+       var title = locationsArray[i].title
        var marker = new google.maps.Marker({
          position: {lat: latitude, lng: longitude},
-         map: map   
+         map: map,
+         title: title 
        })};
-      $scope.mapCreate();
      };
 
   // $scope.mapCreate = function(){

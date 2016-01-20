@@ -1,6 +1,6 @@
 User.create!([
-  {email: "strongzensam@gmail.com", encrypted_password: "$2a$10$ep52/M0PiZF9xCWJmd2Ys.QCHs3cSYssZiTSsjPBr6qdeYfIGuXQq", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 18, current_sign_in_at: "2016-01-18 17:37:27", last_sign_in_at: "2016-01-13 06:55:10", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Sam", last_name: "Schwartz", short_bio: "I am a guitarist who has played everything from Bluegrass to Gospel.  I have played many gigs with both acoustic and electric guitar and can now play 7 string and Dobro.  I can also read profieciently and have gear that works well for musicals."},
-  {email: "jake@bass.com", encrypted_password: "$2a$10$aAl6vsAXdZjdCIuIug70B.Hh/JWcArOJIbdsZ.gg1YHKNnGieid2W", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 6, current_sign_in_at: "2016-01-17 18:48:40", last_sign_in_at: "2015-12-27 22:02:59", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Jake", last_name: "Bass", short_bio: "I have played Bass for everyone from Jake the Snake to Ace of Bass.  Please Hire Me!"},
+  {email: "strongzensam@gmail.com", encrypted_password: "$2a$10$ep52/M0PiZF9xCWJmd2Ys.QCHs3cSYssZiTSsjPBr6qdeYfIGuXQq", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 29, current_sign_in_at: "2016-01-20 04:44:44", last_sign_in_at: "2016-01-20 04:02:10", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Sam", last_name: "Schwartz", short_bio: "I am a guitarist who has played everything from Bluegrass to Gospel.  I have played many gigs with both acoustic and electric guitar and can now play 7 string and Dobro.  I can also read profieciently and have gear that works well for musicals."},
+  {email: "jake@bass.com", encrypted_password: "$2a$10$aAl6vsAXdZjdCIuIug70B.Hh/JWcArOJIbdsZ.gg1YHKNnGieid2W", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 7, current_sign_in_at: "2016-01-20 04:22:19", last_sign_in_at: "2016-01-17 18:48:40", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Jake", last_name: "Bass", short_bio: "I have played Bass for everyone from Jake the Snake to Ace of Bass.  Please Hire Me!"},
   {email: "massiveego@thebest.com", encrypted_password: "$2a$10$I5bp67DgaDhODhhIhJWEb.wasU34zzrW/e/zvLN8DOyjnmBEeoFsW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-12-14 00:53:26", last_sign_in_at: "2015-12-14 00:53:26", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Massive", last_name: "Ego", short_bio: "Blech"},
   {email: "superman@gmail.com", encrypted_password: "$2a$10$HUPTljZwTDiMSIhn3thzm.mcp2mfathqA02k/.whIDCYTf.3sg9ae", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 5, current_sign_in_at: "2016-01-18 04:07:05", last_sign_in_at: "2016-01-13 03:23:19", current_sign_in_ip: "::1", last_sign_in_ip: "::1", first_name: "Bob", last_name: "Weirdo", short_bio: "I am Bob Weirdo the Weirdo"}
 ])
@@ -25,7 +25,17 @@ PublicActivity::ORM::ActiveRecord::Activity.create!([
   {trackable_id: 35, trackable_type: "WorkExperience", owner_id: 4, owner_type: "User", key: "work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
   {trackable_id: 36, trackable_type: "WorkExperience", owner_id: 4, owner_type: "User", key: "work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
   {trackable_id: 37, trackable_type: "WorkExperience", owner_id: 4, owner_type: "User", key: "work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
-  {trackable_id: 17, trackable_type: "UserWorkExperience", owner_id: 4, owner_type: "User", key: "user_work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil}
+  {trackable_id: 17, trackable_type: "UserWorkExperience", owner_id: 4, owner_type: "User", key: "user_work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 13, trackable_type: "UserSkill", owner_id: 2, owner_type: "User", key: "user_skill.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 14, trackable_type: "UserSkill", owner_id: 2, owner_type: "User", key: "user_skill.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 15, trackable_type: "UserSkill", owner_id: 3, owner_type: "User", key: "user_skill.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 9, trackable_type: "Endorsement", owner_id: 1, owner_type: "User", key: "endorsement.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 38, trackable_type: "WorkExperience", owner_id: 1, owner_type: "User", key: "work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 18, trackable_type: "UserWorkExperience", owner_id: 1, owner_type: "User", key: "user_work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 19, trackable_type: "UserWorkExperience", owner_id: 1, owner_type: "User", key: "user_work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 20, trackable_type: "UserWorkExperience", owner_id: 1, owner_type: "User", key: "user_work_experience.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 11, trackable_type: "Skill", owner_id: 1, owner_type: "User", key: "skill.create", parameters: {}, recipient_id: nil, recipient_type: nil},
+  {trackable_id: 16, trackable_type: "UserSkill", owner_id: 1, owner_type: "User", key: "user_skill.create", parameters: {}, recipient_id: nil, recipient_type: nil}
 ])
 Endorsee.create!([
   {user_id: 1},
@@ -35,12 +45,13 @@ Endorsee.create!([
 Endorsement.create!([
   {work_experience_id: 1, content: "Jake is a wonderful bassist and I loved how great his sight reading and professional gear was.", endorsee_id: 2, endorser_id: 1},
   {work_experience_id: 2, content: "Jake is a wonderful bassist and I loved how great his sight reading and professional gear was.", endorsee_id: 2, endorser_id: 1},
-  {work_experience_id: nil, content: nil, endorsee_id: 3, endorser_id: 1},
+  {work_experience_id: 1, content: "Some stuff", endorsee_id: 3, endorser_id: 1},
   {work_experience_id: 1, content: "HAJEPJFKDMLD", endorsee_id: 3, endorser_id: 1},
   {work_experience_id: 2, content: "Jojnskaoa", endorsee_id: 3, endorser_id: 1},
   {work_experience_id: 4, content: "ojbnsdnaakkeeke", endorsee_id: 3, endorser_id: 1},
   {work_experience_id: 4, content: "ALMSNF", endorsee_id: 3, endorser_id: 1},
-  {work_experience_id: 3, content: "He was amazing", endorsee_id: 4, endorser_id: 1}
+  {work_experience_id: 3, content: "He was amazing", endorsee_id: 4, endorser_id: 1},
+  {work_experience_id: 2, content: "He was great AGAIN!!", endorsee_id: 2, endorser_id: 1}
 ])
 Endorser.create!([
   {user_id: 1},
@@ -82,11 +93,12 @@ Skill.create!([
   {name: "Professional Shred Guitar", description: "The ability to shred rock guitar solos on a professional level on a moment's notice"},
   {name: "Professional Jazz Guitar", description: "The ability to play Jazz guitar proficiently on a professional level"},
   {name: "Professional Electric Bassist ", description: "The ability to play electric bass for a variety of styles of music"},
-  {name: "Massive Egotisticalism", description: "This is a shitty skill"},
+  {name: "Massive Egotisticalism", description: "This is a useless skill"},
   {name: "Rock style Drums", description: "The ability to play Drums in a rock style"},
   {name: "Face Melting Guitar solos", description: "Faces will melt...BRING PROTECTION"},
   {name: "Singing like an angel", description: "Sounds like an angel when noise comes out of my mouth"},
-  {name: "Modular improv", description: "The skill to be able to play over changes that modulate"}
+  {name: "Modular improv", description: "The skill to be able to play over changes that modulate"},
+  {name: "Stretching", description: "I am really limber and i know all the stretches"}
 ])
 SkillEndorsement.create!([
   {endorsement_id: 1, skill_id: 2},
@@ -99,18 +111,22 @@ UserImage.create!([
   {user_id: 4, image_id: 4}
 ])
 UserSkill.create!([
-  {skill_id: 1, user_id: 1},
-  {skill_id: 2, user_id: 1},
-  {skill_id: 3, user_id: 1},
-  {skill_id: 4, user_id: 1},
-  {skill_id: 5, user_id: 2},
-  {skill_id: 6, user_id: 3},
-  {skill_id: nil, user_id: nil},
-  {skill_id: 4, user_id: 4},
-  {skill_id: 7, user_id: 4},
-  {skill_id: 6, user_id: 1},
-  {skill_id: 9, user_id: 2},
-  {skill_id: 4, user_id: 2}
+  {skill_id: 1, user_id: 1, work_experience_id: nil},
+  {skill_id: 2, user_id: 1, work_experience_id: nil},
+  {skill_id: 3, user_id: 1, work_experience_id: nil},
+  {skill_id: 4, user_id: 1, work_experience_id: nil},
+  {skill_id: 5, user_id: 2, work_experience_id: nil},
+  {skill_id: 6, user_id: 3, work_experience_id: nil},
+  {skill_id: nil, user_id: nil, work_experience_id: nil},
+  {skill_id: 4, user_id: 4, work_experience_id: nil},
+  {skill_id: 7, user_id: 4, work_experience_id: nil},
+  {skill_id: 6, user_id: 1, work_experience_id: nil},
+  {skill_id: 9, user_id: 2, work_experience_id: nil},
+  {skill_id: 4, user_id: 2, work_experience_id: nil},
+  {skill_id: 1, user_id: 4, work_experience_id: 1},
+  {skill_id: 6, user_id: 3, work_experience_id: 2},
+  {skill_id: 1, user_id: 1, work_experience_id: 1},
+  {skill_id: 11, user_id: 3, work_experience_id: 37}
 ])
 UserWorkExperience.create!([
   {user_id: "1", work_experience_id: "1", role: "Guitarist", description: "Played electric and acoustic guitar for Heathers the Musical in May and June of 2015 for Ray of Light theatre.  Had to use distortion, delay and other effects.  Had to read sheet music and have own gear.\n"},
@@ -129,7 +145,10 @@ UserWorkExperience.create!([
   {user_id: "3", work_experience_id: "32", role: "Being a massive egotisticalist", description: "LJKDSNAGKNDEGLNWRGNWINGJNGFg"},
   {user_id: "4", work_experience_id: "33", role: "SFKNSGS", description: "dSGOSJRLSMDVSSFOJGV"},
   {user_id: "4", work_experience_id: "34", role: "sd;lknsdmgsd sdlkdsv sdv", description: "sdljmnsd sdvlksdvmsdl;ksdmvs dvaldkmnadfadlfkadngf"},
-  {user_id: "1", work_experience_id: "37", role: "Played Guitar", description: "vijfvojfevolefpovkefvkiefjvkijvoefjvoejvojv DUUUUUHHHHH"}
+  {user_id: "1", work_experience_id: "37", role: "Played Guitar", description: "vijfvojfevolefpovkefvkiefjvkijvoefjvoejvojv DUUUUUHHHHH"},
+  {user_id: "1", work_experience_id: "38", role: "Vocalist", description: "Sang top 40 hits including Journey and Metallica"},
+  {user_id: "4", work_experience_id: "38", role: "General Weirdness", description: "I provided some really weird vibes"},
+  {user_id: "2", work_experience_id: "37", role: "Played Bass", description: "Played bass for this awesome gig at the Texas stadium"}
 ])
 WorkExperience.create!([
   {gig_skills_id: nil, active: true, title: "Heathers the Musical", description: "A Musical rendition of the movie Heathers that starred Christian Slater and Wynnona Ryder.  ", street: "18 Ascot Lane", city: "Oakland", state: "CA", country: "USA", latitude: 37.8238, longitude: -122.188, date: nil},
@@ -154,5 +173,6 @@ WorkExperience.create!([
   {gig_skills_id: nil, active: nil, title: "DISGGN", description: "dkjndfwslksdngds", street: "2900 E Tucumcari Blvd", city: "Tucumcari", state: "NM", country: "Usa", latitude: nil, longitude: nil, date: nil},
   {gig_skills_id: nil, active: nil, title: "ojnsdf", description: "ojdsnfojdnfoiwjndfoiwnfwoj", street: "2900 E Tucumcari Blvd", city: "Tucumcari", state: "NM", country: "USA", latitude: nil, longitude: nil, date: nil},
   {gig_skills_id: nil, active: nil, title: "Anything", description: "ljnfvoliknefvlonefv", street: "625 3rd street", city: "San Francisco", state: "CA", country: "USA", latitude: nil, longitude: nil, date: nil},
-  {gig_skills_id: nil, active: nil, title: "Hilary Clinton Rally", description: "dmd", street: "625 3rd street", city: "San Francisco", state: "CA", country: "USA", latitude: 37.7798, longitude: -122.394, date: nil}
+  {gig_skills_id: nil, active: nil, title: "Hilary Clinton Rally", description: "dmd", street: "625 3rd street", city: "San Francisco", state: "CA", country: "USA", latitude: 37.7798, longitude: -122.394, date: nil},
+  {gig_skills_id: nil, active: nil, title: "Gig at Texas stadium", description: "Played this super cool gig in Texas!!", street: "4601 Bosque Blvd", city: "Waco", state: "TX", country: "USA", latitude: 31.5396, longitude: -97.1866, date: nil}
 ])

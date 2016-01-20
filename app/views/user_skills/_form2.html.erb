@@ -1,0 +1,22 @@
+<%= form_for @user_skill do |f|%>
+  <div>
+    <ul>
+      <% if @user_skill && @user_skill.errors.any? %>
+        <% @user_skill.errors.full_messages.each do |message| %>
+          <li class = "error"><%= message %></li>
+        <% end %>
+      <% end %>
+  </ul>
+</div>
+<div class="form-group">
+  <%= f.label :skill_id %>
+  <%= f.select(:skill_id, @skills.collect {|a| ["#{a.name}", a.id]}) %>
+</div> 
+<div class="form-group">
+  <%= f.label :user_id %>
+  <%= f.select(:user_id, @users.collect {|a| ["#{a.full_name}", a.id]}) %>
+</div> 
+  <%= f.hidden_field :work_experience_id, :value => params[:work_experience_id] %>
+  </table>
+  <%= f.submit "Add Skill to Work Experience for User", class: "btn btn-default" %>
+<% end %>

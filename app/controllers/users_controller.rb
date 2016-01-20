@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user =  User.find(params[:id])
+    @endorsements = Endorsement.all
     unless @user.first_name 
       redirect_to "/users/#{@user.id}/edit" 
     end

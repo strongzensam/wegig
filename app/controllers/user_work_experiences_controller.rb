@@ -6,7 +6,7 @@ class UserWorkExperiencesController < ApplicationController
   def create 
     @user_work_experience = UserWorkExperience.new(user_work_experience_params)
     if @user_work_experience.save
-      # flash[:success] = "Work Experience Created"
+      flash[:success] = "#{@user_work_experience.user.full_name} added as user to #{@user_work_experience.work_experience.title}"
       redirect_to "/users/#{current_user.id}"
     else
       render :new
